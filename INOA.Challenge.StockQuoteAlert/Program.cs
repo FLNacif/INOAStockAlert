@@ -4,11 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Security.Authentication.ExtendedProtection;
+using System.Threading;
 
 namespace INOA.Challenge.StockQuoteAlert
 {
     class Program
     {
+        private static EventWaitHandle WaitBackground = new EventWaitHandle(false, EventResetMode.ManualReset);
         static void Main(string[] args)
         {
             // Configurando DI
@@ -31,6 +33,8 @@ namespace INOA.Challenge.StockQuoteAlert
             var stockQuoteMonitor = serviceProvider.GetService<StockQuoteMonitor>();
             stockQuoteMonitor.StartMonitoring(stockCode, sellPrice, buyPrice);
 
+            // Mantem o console rodando, até que a aplicação seja finalizada
+            WaitBackground.WaitOne();
         }
 
         private static void ConfigureServices(ServiceCollection services)

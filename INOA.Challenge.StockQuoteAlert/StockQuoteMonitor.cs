@@ -30,15 +30,18 @@ namespace INOA.Challenge.StockQuoteAlert
 
         public void OnNext(StockInfo value)
         {
+            _log.LogDebug($"Recebida uma atualização de preço doa tivo {value.StockCode} com o valor de R${value.StockPrice}.");
             // Lógica do monitoramento
             if (_lastValue.StockPrice >= _buyPrice && value.StockPrice < _buyPrice)
             {
                 // Dispara e-mail de compra
+                _log.LogDebug($"Preço de compra atingido, disparando um e-mail.");
                 return;
             }
             if (_lastValue.StockPrice <= _sellPrice && value.StockPrice > _sellPrice)
             {
                 // Dispara e-mail de venda
+                _log.LogDebug($"Preço de venda atingido, disparando um e-mail.");
                 return;
             }
 
@@ -48,7 +51,7 @@ namespace INOA.Challenge.StockQuoteAlert
 
         public void StartMonitoring(string code, double sellPrice, double buyPrice)
         {
-            _log.LogInformation("Iniciando monitoramento...");
+            _log.LogInformation($"Iniciando monitoramento do código {code} com preço de venda em R${sellPrice} e preço de compra em R${buyPrice}");
             _sellPrice = sellPrice;
             _buyPrice = buyPrice;
             _stockObservable.Subscribe(this, code);

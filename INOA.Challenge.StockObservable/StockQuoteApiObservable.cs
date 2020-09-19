@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace INOA.Challenge.StockObservable
 {
@@ -36,7 +37,7 @@ namespace INOA.Challenge.StockObservable
                 subscriptions.Add(new StockQuoteSubscription(observer, stockCodes));
                 if (subscriptions.Count == 1)
                 {
-                    LookForStockPrice();
+                    Task.Run(() => LookForStockPrice());
                 }
             }
             else
