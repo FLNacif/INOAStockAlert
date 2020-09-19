@@ -16,8 +16,20 @@ namespace INOA.Challenge.StockQuoteAlert
             ConfigureServices(serviceCollection);
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
+            var stockCode = args[0];
+            double sellPrice;
+            if (!Double.TryParse(args[1].Replace('.', ','), out sellPrice))
+            {
+                Console.WriteLine("O segundo argumento (preço de venda) deve ser numérico.");
+            }
+            double buyPrice;
+            if (!Double.TryParse(args[2].Replace('.', ','), out buyPrice))
+            {
+                Console.WriteLine("O terceiro argumento (preço de compra) deve ser numérico.");
+            }
+
             var stockQuoteMonitor = serviceProvider.GetService<StockQuoteMonitor>();
-            stockQuoteMonitor.StartMonitoring();
+            stockQuoteMonitor.StartMonitoring(stockCode, sellPrice, buyPrice);
 
         }
 

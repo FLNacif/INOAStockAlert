@@ -9,6 +9,9 @@ namespace INOA.Challenge.StockQuoteAlert
     {
         private readonly ILogger<StockQuoteMonitor> _log;
         private readonly IStockQuoteObservable _stockObservable;
+        private StockInfo _lastValue;
+        private double _sellPrice;
+        private double _buyPrice;
         public StockQuoteMonitor(ILogger<StockQuoteMonitor> log, IStockQuoteObservable stockObservable)
         {
             _log = log;
@@ -28,12 +31,27 @@ namespace INOA.Challenge.StockQuoteAlert
         public void OnNext(StockInfo value)
         {
             // Lógica do monitoramento
+            if (_lastValue.StockPrice >= _buyPrice && value.StockPrice < _buyPrice)
+            {
+                // Dispara e-mail de compra
+                return;
+            }
+            if (_lastValue.StockPrice <= _sellPrice && value.StockPrice > _sellPrice)
+            {
+                // Dispara e-mail de venda
+                return;
+            }
+
+            // Atualiza o último preço.
+            _lastValue = value;
         }
 
-        public void StartMonitoring()
+        public void StartMonitoring(string code, double sellPrice, double buyPrice)
         {
             _log.LogInformation("Iniciando monitoramento...");
-            _stockObservable.Subscribe(this);
+            _sellPrice = sellPrice;
+            _buyPrice = buyPrice;
+            _stockObservable.Subscribe(this, code);
         }
     }
 }

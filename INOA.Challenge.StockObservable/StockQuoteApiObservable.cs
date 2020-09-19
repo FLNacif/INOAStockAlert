@@ -11,7 +11,6 @@ namespace INOA.Challenge.StockObservable
     {
 
         private List<StockQuoteSubscription> subscriptions;
-        private List<StockInfo> stockInfos;
 
         public StockQuoteApiObservable()
         {
@@ -31,6 +30,7 @@ namespace INOA.Challenge.StockObservable
 
         public IDisposable Subscribe(IObserver<StockInfo> observer, List<string> stockCodes)
         {
+            stockCodes = stockCodes.Select(x => x.ToUpper()).ToList();
             if (!subscriptions.Any(obs => obs.Observer == observer))
             {
                 subscriptions.Add(new StockQuoteSubscription(observer, stockCodes));
@@ -50,18 +50,22 @@ namespace INOA.Challenge.StockObservable
         {
             while (subscriptions.Any())
             {
-                var stock = new StockInfo();
-
-                stockInfos.Add(stock);
+                // Buscar dados da cotação
+                var stock = BuscarCotacao();
                 foreach (var observer in subscriptions)
                 {
-                    if (!observer.StockCodesInterested.Any() || observer.StockCodesInterested.Contains(stock.StockCode))
+                    if (!observer.StockCodesInterested.Any() || observer.StockCodesInterested.Contains(stock.StockCode?.ToUpper()))
                     {
                         observer.Observer.OnNext(stock);
                     }
                 }
                 Thread.Sleep(1000);
             }
+        }
+
+        private StockInfo BuscarCotacao()
+        {
+            return new StockInfo();
         }
     }
 }
