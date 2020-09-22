@@ -1,9 +1,8 @@
 ﻿using INOA.Challenge.IStockObservable;
-using INOA.Challenge.StockObservable;
+using INOA.Challenge.StockObservable.StockQuoteApiObservable;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Security.Authentication.ExtendedProtection;
 using System.Threading;
 
 namespace INOA.Challenge.StockQuoteAlert
@@ -41,6 +40,7 @@ namespace INOA.Challenge.StockQuoteAlert
         {
             services.AddLogging(configure => configure.AddConsole())
                 .AddSingleton<IStockQuoteObservable, StockQuoteApiObservable>()
+                .AddTransient<IStockQuoteApiService, StockQuoteApiService>()
                 .AddTransient<StockQuoteMonitor>();
         }
     }

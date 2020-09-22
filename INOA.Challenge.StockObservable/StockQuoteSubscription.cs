@@ -7,23 +7,23 @@ namespace INOA.Challenge.StockObservable
 {
     public class StockQuoteSubscription
     {
-        public IObserver<StockInfo> Observer;
+        public IObserver<IEnumerable<StockInfo>> Observer;
         public List<string> StockCodesInterested;
 
-        public StockQuoteSubscription(IObserver<StockInfo> observer, List<string> stockCode)
+        public StockQuoteSubscription(IObserver<IEnumerable<StockInfo>> observer, List<string> stockCode)
         {
             Observer = observer;
             StockCodesInterested = stockCode;
         }
 
-        public StockQuoteSubscription(IObserver<StockInfo> observer, string stockCode)
+        public StockQuoteSubscription(IObserver<IEnumerable<StockInfo>> observer, string stockCode)
         {
             Observer = observer;
             StockCodesInterested = new List<string>();
             StockCodesInterested.Add(stockCode);
         }
 
-        public StockQuoteSubscription(IObserver<StockInfo> observer)
+        public StockQuoteSubscription(IObserver<IEnumerable<StockInfo>> observer)
         {
             Observer = observer;
             StockCodesInterested = new List<string>();

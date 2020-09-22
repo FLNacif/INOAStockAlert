@@ -8,9 +8,9 @@ namespace INOA.Challenge.StockObservable
     internal class Unsubscriber<BaggageInfo> : IDisposable
     {
         private List<StockQuoteSubscription> _subscriptions;
-        private IObserver<StockInfo> _observer;
+        private IObserver<IEnumerable<StockInfo>> _observer;
 
-        internal Unsubscriber(List<StockQuoteSubscription> subscriptions, IObserver<StockInfo> observer)
+        internal Unsubscriber(List<StockQuoteSubscription> subscriptions, IObserver<IEnumerable<StockInfo>> observer)
         {
             this._subscriptions = subscriptions;
             this._observer = observer;
