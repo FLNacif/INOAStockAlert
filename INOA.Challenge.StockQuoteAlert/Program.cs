@@ -1,8 +1,12 @@
-﻿using INOA.Challenge.IStockObservable;
+﻿using INOA.Challenge.Entities.Configuration;
+using INOA.Challenge.IStockObservable;
 using INOA.Challenge.StockObservable.StockQuoteApiObservable;
+using INOA.Challenge.StockQuoteAlert.Notification;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.IO;
 using System.Threading;
 
 namespace INOA.Challenge.StockQuoteAlert
@@ -40,8 +44,22 @@ namespace INOA.Challenge.StockQuoteAlert
         {
             services.AddLogging(configure => configure.AddConsole())
                 .AddSingleton<IStockQuoteObservable, StockQuoteApiObservable>()
+                .AddSingleton(SetupConfiguration())
                 .AddTransient<IStockQuoteApiService, StockQuoteApiService>()
+                .AddTransient<INotificationService, NotificationService>()
                 .AddTransient<StockQuoteMonitor>();
+        }
+
+        private static ProgramConfiguration SetupConfiguration()
+        {
+            ProgramConfiguration config = new ProgramConfiguration();
+            new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build()
+                .Bind(config);
+
+            return config;
         }
     }
 }
