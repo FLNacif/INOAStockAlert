@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.StockQuoteAlert", "INOA.Challenge.StockQuoteAlert\INOA.Challenge.StockQuoteAlert.csproj", "{F659D97B-FEC4-4CEE-8563-6B104CA2B74C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.StockQuoteAlert", "INOA.Challenge.StockQuoteAlert\INOA.Challenge.StockQuoteAlert.csproj", "{F659D97B-FEC4-4CEE-8563-6B104CA2B74C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.IStockObservable", "INOA.Challenge.IStockObservable\INOA.Challenge.IStockObservable.csproj", "{6846EBBA-2B5A-4EE9-B8DC-E14E2AF1A4B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.IStockObservable", "INOA.Challenge.IStockObservable\INOA.Challenge.IStockObservable.csproj", "{6846EBBA-2B5A-4EE9-B8DC-E14E2AF1A4B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.StockObservable", "INOA.Challenge.StockObservable\INOA.Challenge.StockObservable.csproj", "{4CC49DED-AB7D-4C7A-A1A6-CB662A13AA41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.StockObservable", "INOA.Challenge.StockObservable\INOA.Challenge.StockObservable.csproj", "{4CC49DED-AB7D-4C7A-A1A6-CB662A13AA41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.Entities", "INOA.Challenge.Entities\INOA.Challenge.Entities.csproj", "{097D88C4-B989-4888-80A1-D756B9EEE3DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.Entities", "INOA.Challenge.Entities\INOA.Challenge.Entities.csproj", "{097D88C4-B989-4888-80A1-D756B9EEE3DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.StockApi.Mock", "INOA.Challenge.StockApi.Mock\INOA.Challenge.StockApi.Mock.csproj", "{86CB09F8-584A-4CA6-85F6-EDAE6668F895}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{097D88C4-B989-4888-80A1-D756B9EEE3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{097D88C4-B989-4888-80A1-D756B9EEE3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{097D88C4-B989-4888-80A1-D756B9EEE3DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
   "profiles": {
     "INOA.Challenge.StockQuoteAlert": {
       "commandName": "Project",
-      "commandLineArgs": "PETR4 22.67 22.59"
+      "commandLineArgs": "PETR5 22.67 22.59"
     }
   }
 }

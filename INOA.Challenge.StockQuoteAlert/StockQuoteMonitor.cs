@@ -47,13 +47,13 @@ namespace INOA.Challenge.StockQuoteAlert
                 {
                     // Dispara e-mail de compra
                     _log.LogDebug($"Preço de compra atingido, disparando um e-mail.");
-                    NotificarCompra();
+                    NotificarCompra(quote);
                 }
                 else if ((_lastQuote == null || _lastQuote.StockPrice <= _sellPrice) && quote.StockPrice > _sellPrice)
                 {
                     // Dispara e-mail de venda
                     _log.LogDebug($"Preço de venda atingido, disparando um e-mail.");
-                    NotificarVenda();
+                    NotificarVenda(quote);
                 }
 
                 // Atualiza o último preço.
@@ -61,14 +61,14 @@ namespace INOA.Challenge.StockQuoteAlert
             }
         }
 
-        private void NotificarVenda()
+        private void NotificarVenda(StockInfo stock)
         {
-            _notificationService.Notify(ApplicationConstants.SubjectCompra, "");
+            _notificationService.Notify(ApplicationConstants.SubjectVenda, $"O preço de venda para o papel {stock.StockCode} foi atingido. Preço atual: R${stock.StockPrice}. ");
         }
 
-        private void NotificarCompra()
+        private void NotificarCompra(StockInfo stock)
         {
-            _notificationService.Notify(ApplicationConstants.SubjectVenda, "");
+            _notificationService.Notify(ApplicationConstants.SubjectCompra, $"O preço de compra para o papel {stock.StockCode} foi atingido. Preço atual: R${stock.StockPrice}. ");
         }
 
         public void StartMonitoring(string code, double sellPrice, double buyPrice)
