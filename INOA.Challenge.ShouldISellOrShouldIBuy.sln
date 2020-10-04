@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.StockObserva
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.Entities", "INOA.Challenge.Entities\INOA.Challenge.Entities.csproj", "{097D88C4-B989-4888-80A1-D756B9EEE3DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.StockApi.Mock", "INOA.Challenge.StockApi.Mock\INOA.Challenge.StockApi.Mock.csproj", "{86CB09F8-584A-4CA6-85F6-EDAE6668F895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INOA.Challenge.StockApi.Mock", "INOA.Challenge.StockApi.Mock\INOA.Challenge.StockApi.Mock.csproj", "{86CB09F8-584A-4CA6-85F6-EDAE6668F895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INOA.Challenge.UnitTests", "INOA.Challenge.UnitTests\INOA.Challenge.UnitTests.csproj", "{3A582DFA-647C-4513-BFAE-2D9C16855DD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86CB09F8-584A-4CA6-85F6-EDAE6668F895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A582DFA-647C-4513-BFAE-2D9C16855DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A582DFA-647C-4513-BFAE-2D9C16855DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A582DFA-647C-4513-BFAE-2D9C16855DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A582DFA-647C-4513-BFAE-2D9C16855DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
