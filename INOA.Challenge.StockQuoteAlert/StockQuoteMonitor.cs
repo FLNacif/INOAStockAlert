@@ -41,18 +41,18 @@ namespace INOA.Challenge.StockQuoteAlert
             {
                 StockInfo _lastQuote;
                 _lastValues.TryGetValue(quote.StockCode, out _lastQuote);
-                _log.LogDebug($"Recebida uma atualização de preço doa tivo {quote.StockCode} com o valor de R${quote.StockPrice}.");
+                _log.LogInformation($"Recebida uma atualização de preço do ativo {quote.StockCode} com o valor de R${quote.StockPrice}.");
                 // Lógica do monitoramento
                 if ((_lastQuote == null || _lastQuote.StockPrice >= _buyPrice) && quote.StockPrice < _buyPrice)
                 {
                     // Dispara e-mail de compra
-                    _log.LogDebug($"Preço de compra atingido, disparando um e-mail.");
+                    _log.LogInformation($"Preço de compra atingido, disparando um e-mail.");
                     NotificarCompra(quote);
                 }
                 else if ((_lastQuote == null || _lastQuote.StockPrice <= _sellPrice) && quote.StockPrice > _sellPrice)
                 {
                     // Dispara e-mail de venda
-                    _log.LogDebug($"Preço de venda atingido, disparando um e-mail.");
+                    _log.LogInformation($"Preço de venda atingido, disparando um e-mail.");
                     NotificarVenda(quote);
                 }
 
