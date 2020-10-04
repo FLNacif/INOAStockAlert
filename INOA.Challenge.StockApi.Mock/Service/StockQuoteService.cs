@@ -17,7 +17,7 @@ namespace INOA.Challenge.StockApi.Mock.Service
         private DateTime _dataAtualDado;
         public StockQuoteService()
         {
-            using (var reader = new StreamReader(".\\Resources\\2020.csv"))
+            using (var reader = new StreamReader("Resources/2020.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Configuration.PrepareHeaderForMatch = (string header, int index) => header.ToLower();
@@ -35,7 +35,7 @@ namespace INOA.Challenge.StockApi.Mock.Service
             {
                 if (_dataAtualDado.Year > 2020)
                 {
-                    _dataAtualDado = new DateTime(22020, 1, 1);
+                    _dataAtualDado = new DateTime(2020, 1, 1);
                 }
                 dadosFiltrados = _dadosAcoesB3.Where(x => x.Data == _dataAtualDado && symbols.Contains(x.Ticker));
                 _dataAtualDado = _dataAtualDado.AddDays(1);

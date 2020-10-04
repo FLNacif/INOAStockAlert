@@ -3,6 +3,9 @@
     "INOA.Challenge.StockQuoteAlert": {
       "commandName": "Project",
       "commandLineArgs": "PETR5 22.67 22.59"
+    },
+    "Docker": {
+      "commandName": "Docker"
     }
   }
 }

@@ -16,6 +16,18 @@ namespace INOA.Challenge.StockQuoteAlert
         private static EventWaitHandle WaitBackground = new EventWaitHandle(false, EventResetMode.ManualReset);
         static void Main(string[] args)
         {
+            if (args == null || args.Length < 3)
+            {
+                args = new string[3];
+                Console.WriteLine("Informe o código para monitorar (em caso de múltiplos separe por vírgula):");
+                args[0] = Console.ReadLine();
+
+                Console.WriteLine("Informe o preço de venda do ativo:");
+                args[1] = Console.ReadLine();
+
+                Console.WriteLine("Informe o preço de compra do ativo:");
+                args[2] = Console.ReadLine();
+            }
             // Configurando DI
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);

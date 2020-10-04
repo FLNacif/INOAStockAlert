@@ -28,8 +28,9 @@ namespace INOA.Challenge.StockApi.Mock.Controllers
         // Será utilizado como fonte dos dados um arquivo de dados diários da B3 em um formato que eu já possuía em CSV de um outro projeto.
 
         [HttpGet]
-        public StockResponseDto Get(string symbol = "")
+        public StockResponseDto Get(string symbol)
         {
+            symbol = symbol ?? "";
             var symbols = symbol.Split(",");
             var response = new StockResponseDto();
             Stopwatch sw = new Stopwatch();
